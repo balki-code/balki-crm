@@ -1,0 +1,276 @@
+/* App.css */
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --primary-color: #4f46e5;
+  --green-paid: #10b981;
+  --red-pending: #ef4444;
+  --blue-mql: #3b82f6;
+  --purple-sql: #8b5cf6;
+  --orange-opportunity: #f97316;
+  --yellow-negotiation: #f59e0b;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+.App {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+}
+
+select, input, button {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  font-size: 14px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #4338ca;
+}
+
+.add-lead-btn {
+    background-color: var(--green-paid);
+}
+.add-lead-btn:hover {
+    background-color: #059669;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.125rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-card .value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stat-card .label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.payments-glance .payment-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.payments-glance .total-received {
+    color: var(--green-paid);
+}
+
+.payments-glance .total-pending {
+    color: var(--red-pending);
+}
+
+.full-width-card {
+  grid-column: 1 / -1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-mql { background-color: var(--blue-mql); color: white; }
+.status-sql { background-color: var(--purple-sql); color: white; }
+.status-opportunity { background-color: var(--orange-opportunity); color: white; }
+.status-negotiation { background-color: #f59e0b33; color: var(--yellow-negotiation); }
+.status-closed-won { background-color: #10b98133; color: var(--green-paid); }
+.status-closed-lost { background-color: #ef444433; color: var(--red-pending); }
+
+.payment-status-paid { color: var(--green-paid); font-weight: 600; }
+.payment-status-pending { color: var(--text-secondary); }
+.payment-status-overdue { color: var(--red-pending); font-weight: 600; }
+
+.upcoming-payment.overdue {
+    color: var(--red-pending);
+    font-weight: bold;
+}
+
+.action-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 1rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.full-span {
+  grid-column: 1 / -1;
+}
+
+.payment-schedule-creator h3 {
+    margin-bottom: 8px;
+}
+
+.installment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.modal-actions .delete-btn {
+    background-color: var(--red-pending);
+}
+
+.modal-actions .delete-btn:hover {
+    background-color: #dc2626;
+}
